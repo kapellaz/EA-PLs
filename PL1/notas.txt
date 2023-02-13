@@ -1,0 +1,31 @@
+1.
+    a Se ja estiver ordenado a complexidade é o(1), caso contrario, a complexidade dependera do algoritmo de ordenamento
+
+2
+    a. Numa abordagem onde comparamos todos os nos, obtemos uma complexidade quadratica, se formos pelas arestas a complexidade sera O(E) (E é o numero de arestas), onde esta complexidade no maximo sera quase quadratica.
+
+    b. atraves de uma pesquisa binaria por exemplo onde o numero de chamadas a A seria log V
+
+3.
+    a. (3 colinear - uma reta que apanhe 3 pontos)
+        3 - colinear: fazer pares de pontos e calcular a eq da reta originada por esses pares (basta o declive)
+                    c = hashset()
+                    for i=1 to N:
+                        for j = i+1 to N:
+                            m = declive(p[i],p[j])
+                            if(m in c)
+                                return true 
+                            else
+                                c.insert(m)
+                    return false
+                    
+ ----------------->O(n^2)
+
+    b. (x,x^3)       a+b+c=0  
+
+
+    c. a ser verdade essa conjetura, a complexidade do 3-collinear tambem será no minimo quadratica 
+
+    programming->fazer com complexidade quadratica
+
+    
