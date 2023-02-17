@@ -28,4 +28,26 @@
 
     programming->fazer com complexidade quadratica
 
+___________________________________________________________________________________________________________________________________________________________________________________________
+
+técnica dos 2 ponteiros
+
+A -> array com numeros
+
+A.sort()   // nlogn
+
+for i = 1 to N-2
+    j=i+1
+    k=N 
+    while j!=k:
+        if A[i]+A[j]+A[k]==0:
+            return true
+        else if(... < 0):
+            j+=1
+        else:
+            k-=1
+return false
+
+
+
     
