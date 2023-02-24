@@ -1,0 +1,141 @@
+A = 7
+
+c = 1,5,3,2                     LEFT -> SIM          RIGHT -> NAO
+    0,1,2,3
+                                                 7,0
+
+                                        6,1                   7,1
+
+                                1,2             6,2         2,2
+
+                        -2,3        1,3                         2,3
+
+                        X            -1,4    1,4            0,4
+                                    x       x              RET TRUE
+
+
+Coin1 -> dicotomica
+Coin2 -> politomica
+
+
+b
+
+    A = 12                  Coin1                       12,1
+    c = 3,5,7                                    /                \
+                                                9,2               12,2
+                                              /     \             /
+                                            4,3      9,3        7,3
+                                           /   \     /  \        /
+                                        -3,4    4,4 2,4 9,4    0,4
+                                         F       F   F   F      TRUE
+
+
+                            Coin2
+
+                                                    (TRUE)
+                                                    12,0
+                                                    /   \
+                                                9,1         7,2     
+                                                /  \           /
+                                            4,2     2,3     0,3
+                                                (false)   (true)
+                                        /          
+                                -3,3 false 
+
+
+c
+
+Coin1(A,i)
+if A==0
+    return 1
+if A>0 or i>n
+    return 0
+return Coin1(A-c1,i+1)+Coin1(A,i+1)
+
+
+Coin2(A,i):
+    if A = 0:
+        return 1
+    if A < 0:
+        return 0
+    res = 0
+    for j=i+1 to n:
+        res+= Coin2(A-cj,j);
+    return res
+
+
+d-agrupar numeros iguais para nao repetir a mesma moeda
+
+ 
+Coin1(A,i,m)
+if(m>=best)
+    return best
+if A==0
+    if m<best   
+        best=m
+    return m
+if A>0 or i>n
+    return inf(numero grande)
+return min(Coin1(A-c1,i+1, m+1)+Coin1(A,i+1,m))
+
+
+Coin2(A,i):
+if(m>=best)
+    return best
+if A==0   
+    best=m
+    return best
+if a < 0
+    return +inf
+res = +inf
+for j=i+1 to n:
+    res= min(res,Coin2(A-cj,j,m+1);
+return res
+
+
+2:
+
+    cabo minimo possivel
+    limite no numero de ligacoes
+    numero de links a sair de cada no é limitado
+
+    podemos começar com qq raiz
+
+pseudo-codigo:
+
+//global vars
+best
+connected
+deg
+g
+
+//func
+F(v,c):
+    if c >=best
+        return
+    if v == n
+        best=c
+        return  
+    for i=1 to n:
+        if connected[i]==true and deg[i]<k:
+        for j = 1 to n:
+            if connected[j]==false and g[i][j]>=0:
+                deg[i]+=1
+                deg[j]+=1
+                connected[i]=true
+                F(v+1,c+g[i][j])
+                deg[i]-=1
+                deg[j]-=1
+                connected[i]=false
+
+
+main
+best = +inf
+connected[1]=true
+F(1,0)
+if best < +inf
+    print best
+else print no way
+
+
+
