@@ -1,0 +1,103 @@
+7
+3 8
+8 1 1
+2 7 4 4
+4 5 2 6 5
+
+
+//abordagem normal
+
+N linhas | N colunas
+i-linha, j-coluna
+
+M -> matriz
+
+
+
+F(s,i,j)
+    if i==N:
+        return s
+    l = F(s+M[i][j],i+1,j)
+    r = F(s+M[i][j],i+1,j+1)
+    return max(l,r)
+
+main
+ F(0,0,0)
+
+ //aboragem dinamica top down
+
+
+N linhas | N colunas
+i-linha, j-coluna
+
+M -> matriz
+
+dp -> matriz n x n inicializada a 0 (inteiros positivos)
+
+
+F(i,j)
+    //caso base
+    if i==N-1:
+        return M[i][j]
+    if(dp[i][j]!=0)
+        return dp[i][j]
+
+    // relacao de recorrencia
+    l = F(i+1,j)
+    r = F(i+1,j+1)
+
+    dp[i][j] = M[i][j] + max(l,r)
+
+    return dp[i][j]
+
+main
+ F(0,0)
+
+
+
+ F(i,j) -> subproblema F(i,j) é calcular a soma maxima de (i,j) para baixo
+
+ relacao de recorrencia -> andar da esquerda para a direita
+
+ propriedade subestrutura otima (um subproblema nao depende do outro)
+
+ Assumimos que F(i,j) dá o maximo de (i,j) para baixo
+
+ Negacao: w = F(i,j)-M[i][j] é menor que  F(i-1, j+1)
+        Consq: é possivel chegar a F(i-1, j+1) com um caminho melhor
+                e a F(i,j) com um valor melhor (contradicao)
+
+                Dado que F(i-1,j+1)+M[i][j] > w
+
+        F(i,j) é calcular a soma maxima de (i,j) para baixo~
+
+
+Complexidade N^2, so passamos por cada valor uma vez (da matriz N*N)
+
+Sem o passo de programacao dinamica a complexidade seria 2^N
+
+A complexidade espacial seria N^2 tambem, que é maior que o primeiro caso
+onde seria N.
+
+
+
+//abordagem bottom-up iterativa
+
+7                       30
+3 8                     23 21
+8 1 1                   20 13 11
+2 7 4 4                 7 12 10 10
+4 5 2 6 5               4 5 2 6 5
+                        0 0 0 0 0 0 
+Cada valor (de baixo para cima) é o valor na matriz da esquerda, somado com o maximo dos filhos
+
+
+F()
+    for i=N-1 to 0
+        for j = 0 to i-1
+            dp[i][j]=M[i][j]+max(dp[i+1][j],dp[i+1][j+1]);
+
+
+geralmente a abordagem bottom up é mais rapida que a top down
+
+complexidade espacial e temporal semelhantes.
