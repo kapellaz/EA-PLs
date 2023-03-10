@@ -1,0 +1,83 @@
+
+
+1 | 3 |2
+2 | 4 |3
+3 | 5 |4
+4 | 6 |5
+
+capacidade C = 5
+
+tabela
+
+i/w  0 1 2 3 4 5 
+  0  0 0 0 0 0 0
+  1  0 0 3 3 3 3
+  2  0 0 3 4 4 7
+  3  0 0 3 4 5 7
+  4  0 0 3 4 5 7
+
+
+i linhas, j colunas
+
+dp[i,j] 
+
+if j < wi
+    di[i,j] = dp[i,j-1]
+else
+    di[i,j] = max(dp[i,j-1], dp[i-1][j-wi]+vi)
+
+
+complexidade O(N * C)
+
+
+reconstruir
+
+sol = {2,1}
+
+
+
+
+
+2.
+
+pizza
+
+1      | 1 
+2      | 2 
+3      | 1 
+4      | 3
+
+objetivo, equilibrar o peso dos fornos
+
+p.e se a soma dos tempos for 7 o ideal seria um trabalhar 3m e outro 4m, 
+por isso o ideal é encontrar o valor mais perto da metade porque assim o outro forno
+faz a outra metade.
+
+
+subset sum para c = floor(soma dos tempos/2)
+
+
+i/c 0  1  2  3
+ 0  T  F  F  F
+ 1  T  T  F  F
+ 2  T  T  T  T 
+ 3  T  T  T  T
+ 4  T  T  T  T
+
+
+primeira linha true, f,f,f,f
+
+if(j<t) dp[i][j]=dp[i-1][j]
+else dp[i][j] = dp[i-1][j] or dp[i-1][j-ti]
+
+
+sol = {2,1} or {4}
+
+
+
+
+
+
+
+
+
