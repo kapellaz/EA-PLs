@@ -1,0 +1,90 @@
+1a.
+
+
+fx = somatorio(1,M)  min  t contido em ji
+                    j pertence{1,N}
+                    xj = 1
+
+
+lb(x') = somatorio(1,M)  min  t contido em ji
+                    j pertence{1,N}
+                    xj > 0
+
+x' -> solucao incompleta
+x solucao completa derivada de x'
+
+lb(x') <= f(x)
+
+x'j = 0{
+    0   armazem nao construido
+    1   armazem construido
+    2   incognita
+}
+
+
+
+x1 = [2,2,2,2,2]
+lb(x1)=[1+2+2+1+3=9]
+
+x2 = [1,0,2,2,2]
+lb(x2)=6+4+2+1+3 = 16
+
+
+
+ub(x') >= f(x)
+
+upper bound, nos casos de minimizacao utilizado para nos guiar sobre
+o caminho a seguir
+
+
+é preciso ter atencao ao custo de calcular os bounds
+
+
+
+unsocial network:
+
+queremos encontrar o numero maximo de pessoas que nao se conhecem umas as outras
+
+
+conjunto vazio é admissivel
+
+
+
+fx = somatorio(0,n-1) xi
+
+maximizar -> upper bound
+
+ub(x') >= f(x)
+
+
+ub(i,x,c)
+    //return c+(N-i)
+    for j = i to N-1
+        boolean t = true
+        for k = 0 to i-1
+            if x[k] and g[j][k]
+                b=false
+                break
+        if b:
+            c+=1
+    return c
+            
+
+
+F(i -> pessoa, x -> pessoa,contagem)
+    if ub(i,x,c) <=best
+        return
+    if i == n
+        if(c>best) 
+            best = c
+        return
+    x[i]=False
+    F(i+1,x,c)
+    boolean b = true
+    for j = 0 to i-1
+        if x[j]==true and g[i][j]==true:
+            b = False
+            break;
+    if(b==true)
+        x[i]=true
+        F(i+1,x,c+1)
