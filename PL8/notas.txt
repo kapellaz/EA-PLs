@@ -1,0 +1,101 @@
+MdxJEq
+sudo g++ -std=c++17 -O2 "program.cpp" -lm
+
+1.a
+
+queue = [(0,0), (7,1),(1,2), (8,2),(2,3),(6,3),(3,4),(5,4),(4,5)]
+
+visitados = [0,7,1,8,2,6,3,5,4]
+
+dist = [0  2  3  4  5  4  4  1  2]
+        0  1  2  3  4  5  6  7  8
+
+
+
+
+1.b
+
+visitados[0,7,1,2,3,5,4,6,8]
+
+          0
+          | 
+          7
+         / \
+        1   8
+       /
+      2
+     /
+    3
+   /
+  5
+ / \
+4   6
+    
+
+2
+
+A = 3/4 milk
+B = egg
+C = 1Tbl oil
+D = cup mix 
+E = heat griddle
+F = pour 1/4
+G = turn when bubly
+I = eat
+H = heat syrup
+
+
+
+q = [A,B,C,E,D,F,H,G,I]
+
+
+VIS = [A,B,C,E,D,F,H,G,I]
+
+
+   T 1 -----2 S
+    |\
+    | \
+   S 2  \
+    |   4 S
+    |      
+    3
+    T
+
+
+
+1       4
+|       |\
+|       | \
+3- - - -2--5
+
+
+colour(s,vis,cores,G)
+    while(len(s)>0)
+        u = s.pop()
+        for v in G[u] //todas as arestas ligadas a u
+            if(col[v]==0)
+                col[v] = (col[u] %2) +1
+                vis+=1
+                s.push(v)
+            else if(col[u] = col[v])
+                return false;
+    return true
+
+
+
+F(n,G)
+    col = (0,...,0)  //n+1 vezes 0
+    vis = 0
+    while(vis<n)
+        s[]
+        for i=1 to n:
+            if col[i] == 0
+                s = [i]
+                col[i] = 1
+                visitados++;
+                break;
+    if(len(s) == 1){
+        if colour(s,vis,col,g) = false
+            return false
+    }
+    return true
