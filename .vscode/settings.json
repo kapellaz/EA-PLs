@@ -48,6 +48,13 @@
         "unordered_set": "cpp",
         "xhash": "cpp",
         "vector": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "queue": "cpp",
+        "set": "cpp",
+        "sstream": "cpp",
+        "unordered_map": "cpp",
+        "xtree": "cpp"
     }
 }
